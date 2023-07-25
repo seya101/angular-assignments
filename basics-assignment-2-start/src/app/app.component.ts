@@ -12,7 +12,4 @@ export class AppComponent {
     alert("Hi " + this.username)
   }
 
-  resetInput() {
-    this.username = ''
-  }
 }
