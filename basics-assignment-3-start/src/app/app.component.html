@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Assignment #3</h1>
+  <div class="row">
+    <div class="col-xs-12">
+      <ol>
+        <li>Add A button which says 'Display Details'</li>
+        <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
+        <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+      </ol>
+    </div>
+  </div>
+
+  <hr>
+  <h6>Answer 1-2</h6>
+  <button 
+  class="btn btn-primary"
+  (click)="showSecret = !showSecret"
+  >
+  Display Details
+  </button>
+  <p *ngIf="showSecret">Secret Password = tuna</p>
+  
+  <hr>
+  
+  <h6>Answer 3-5</h6>
+  <button 
+  class="btn btn-primary"
+  (click)="onToggleDetailes()"
+  >
+  Display Details
+  </button>
+  
+  <div 
+    *ngFor="let step of steps"
+    [ngStyle]="{backgroundColor: step >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': step >= 5}"
+  > 
+  {{step}}
+  </div>
+
+  <hr>
+  
+  <h6>Getting the Index</h6>
+  <button 
+  class="btn btn-primary"
+  (click)="onToggleDetailesIndex()"
+  >
+  Display Details [Index]
+  </button>
+
+  <div 
+    *ngFor="let stepIndex of stepsWithIndex; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': i >= 4}"
+  >
+  {{stepIndex}}
+  </div>
+
+</div>
+
